@@ -20,15 +20,17 @@ app.use(express.static(publicDirectory))
 
 app.get('', (req, res) => {
   res.render('index', {
-    title: "Main Page",
-    name: "Jacob Shawver"
+    title: "Most Accurate Forecast*",
+    name: "Jacob Shawver",
+    Addition: "*May not be accurate"
   })
 })
 
 app.get('/about', (req, res) => {
   res.render('about', {
     title: "Aboot",
-    name: "Jacob Shawver"
+    name: "Jacob Shawver",
+    FootDisclaimer: "**Not the only Jacob Shawver"
   })
 })
 
@@ -46,14 +48,14 @@ app.get('/weather', (req, res) => {
       error: 'No location is provided'
     })
   }
-  geocode(req.query.address, (error, {lat, long, name}) => {
+  geocode(req.query.address, (error, geoData) => {
     if (error) {
       return res.send({
         error: error
       })
     }
 
-    forecast(lat, long, (error, forecastData, icon) => {
+    forecast(geoData.lat, geoData.long, (error, forecastData, icon) => {
       if (error) {
         return res.send({
           error: error
@@ -61,7 +63,7 @@ app.get('/weather', (req, res) => {
       }
 
       return res.send({
-        location: name,
+        location: geoData.name,
         forecast: `${forecastData.summary} It is currently ${forecastData.curTemp} degrees out. There is a ${forecastData.precip}% chance of rain`,
         wIcon: forecastData.icon
 
