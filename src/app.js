@@ -6,6 +6,8 @@ const forecast = require('./utils/forecast')
 
 
 const app = express()
+const port = process.env.PORT || 3000
+
 const publicDirectory = path.join(__dirname, '../public')
 const viewsPath = path.join(__dirname, '../templates/views')
 const partialPath = path.join(__dirname, '../templates/partials')
@@ -61,7 +63,7 @@ app.get('/weather', (req, res) => {
       return res.send({
         location: name,
         forecast: `${forecastData.summary} It is currently ${forecastData.curTemp} degrees out. There is a ${forecastData.precip}% chance of rain`
-        
+
       })
     })
   })
@@ -82,6 +84,6 @@ app.get('*', (req, res) => {
 })
 
 
-app.listen(3000, () => {
-  console.log('Server listening on port 3000')
+app.listen(port, () => {
+  console.log(`Server listening on port ${port}`)
 })
