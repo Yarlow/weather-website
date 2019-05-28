@@ -1,9 +1,10 @@
 body {
-  color: #333333;
+  color: #0f3f8c;
   font-family: arial;
   max-width: 650px;
   margin: 0 auto;
   padding: 0 16px;
+  background-color: #d4d7db;
 
   display: flex;
   flex-direction: column;
@@ -15,15 +16,16 @@ body {
 }
 
 footer {
-  color: #888888;
-  border-top: 1px solid #eeeeee;
-  margin-top: 16px;
+  color: #616b7a;
+  border-top: 1px solid #616b7a;
+  margin-top: 10px;
   padding: 16px 0;
 }
 
 header {
   margin-top: 16px;
   margin-bottom: 48px;
+  color: #0f3f8c;
 }
 
 h1 {
@@ -32,11 +34,34 @@ h1 {
 }
 
 header a {
-  color: #888888;
+  color: #164e99;
   margin-right: 16px;
   text-decoration: none;
 }
 
 .portrait {
-  width: 100;
+  width: 100px;
+  align: middle;
+  border-radius: 15px;
+  border: 2px double gold;
+}
+
+input {
+  border: 1px solid #878a8e;
+  padding: 8px;
+  background-color: #e8ebef;
+  border-radius: 10px;
+}
+
+button {
+  cursor: pointer;
+  border: 2px groove #888888;
+  border-radius: 10px;
+  background: #a0acbf;
+  color: #164e99;
+  padding: 8px;
+}
+
+.icon {
+  width: 40px;
 }
