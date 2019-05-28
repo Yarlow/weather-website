@@ -53,7 +53,7 @@ app.get('/weather', (req, res) => {
       })
     }
 
-    forecast(lat, long, (error, forecastData) => {
+    forecast(lat, long, (error, forecastData, icon) => {
       if (error) {
         return res.send({
           error: error
@@ -62,7 +62,8 @@ app.get('/weather', (req, res) => {
 
       return res.send({
         location: name,
-        forecast: `${forecastData.summary} It is currently ${forecastData.curTemp} degrees out. There is a ${forecastData.precip}% chance of rain`
+        forecast: `${forecastData.summary} It is currently ${forecastData.curTemp} degrees out. There is a ${forecastData.precip}% chance of rain`,
+        wIcon: forecastData.icon
 
       })
     })
