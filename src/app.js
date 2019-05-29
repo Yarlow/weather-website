@@ -20,7 +20,7 @@ app.use(express.static(publicDirectory))
 
 app.get('', (req, res) => {
   res.render('index', {
-    title: "Most Accurate Forecast*",
+    title: "WOW! Now that's accurate weather*",
     name: "Jacob Shawver",
     Addition: "*May not be accurate"
   })

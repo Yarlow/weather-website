@@ -6,16 +6,17 @@ const forecast = (lat, long, callback) => {
   request({ url, json: true }, (error, { body }) => {
     if (error) {
       callback('error', undefined)
-    } else if (body.error) {
-      callback(error , undefined)
-    } else {
+    }
+    else if (body.error) {
+      callback(body.error , undefined)
+    }
+    else {
       callback(undefined, {
         summary: body.daily.data[0].summary,
         curTemp: body.currently.temperature,
         precip: body.currently.precipProbability,
         icon: body.currently.icon
       })
-
     }
   })
 }
